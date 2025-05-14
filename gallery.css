@@ -1,0 +1,100 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #3590ff;
+}
+
+#slideshow {
+  position: relative;
+  height: 150vh;
+  width: 100%;
+  background: url("job-job-offer-workplace-job-search.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.content-carrousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.content-carrousel figure {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 250px;
+  height: 150px;
+  background: #000;
+  border: 1px solid #3b444b;
+  overflow: hidden;
+  padding: 0;
+}
+
+.content-carrousel figure.open {
+  width: 100%;
+  height: 100%;
+  padding: 2em;
+  transition-property: padding, width, height;
+  transition-duration: 10ms;
+}
+
+.content-carrousel figure img {
+  width: 100%;
+  height: 100%;
+  transition: transform 300ms;
+}
+
+.content-carrousel figure:not(.open):hover img {
+  transform: scale(1.2);
+}
+
+.closeImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4em;
+  height: 4em;
+  transform: scale(0);
+}
+
+.closeImage.open {
+  transform: scale(1);
+  transition: transform 750ms 750ms;
+  cursor: pointer;
+}
+
+.closeImage::before,
+.closeImage::after {
+  content: "";
+  position: absolute;
+  top: 2em;
+  left: 2em;
+  transform-origin: 50% 50%;
+  border-radius: 5px;
+  width: 2px;
+  height: 2em;
+  background: white;
+}
+
+.closeImage::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.closeImage::after {
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.closeImage:hover::before,
+.closeImage:hover::after {
+  background: red;
+}
